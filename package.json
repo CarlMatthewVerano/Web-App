@@ -16,5 +16,20 @@
     "dependencies": {
         "envalid": "^8.1.0",
         "express": "^5.1.0"
+    },
+    "imports": {
+        "#app/*": "./src/app.js",
+        "#config": "./src/config/index.js",
+        "#controllers/*": "./src/controllers/*.js",
+        "#database": "./src/database/index.js",
+        "#dtos/*": "./src/dtos/*.js",
+        "#entities/*": "./src/entities/*.js",
+        "#exceptions/*": "./src/exceptions/*",
+        "#interfaces/*": "./src/interfaces/*.js",
+        "#middlewares/*": "./src/middlewares/*.js",
+        "#repositories/*": "./src/repositories/*.js",
+        "#routes/*": "./src/routes/*.js",
+        "#services/*": "./src/services/*.js",
+        "#utils/*": "./src/utils/*.js"
     }
 }
