@@ -5,12 +5,13 @@ import { NODE_ENV, PORT } from "./config/index.js";
 export class App {
     public app = express();
     public env: string;
-    public port: string | number = 3000;
+    public port: string | number;
 
     constructor(routes: Routes[]) {
         this.app = express();
         this.env = NODE_ENV || "development";
-        this.port = PORT || 3000;
+        this.port = PORT || 5000;
+        this.initializeRoutes(routes);
     }
 
     // app.get("/", (req, res) => {
@@ -20,4 +21,18 @@ export class App {
     public listen() {
         this.app.listen(this.port);
     }
+
+    private initializeRoutes(routes: Routes[]) {
+        routes.forEach((route) => {
+            this.app.use("/", route.router);
+        });
+    }
+
+    // private initializeErrorHandling() {
+    //     this.app.use(ErrorMiddleware);
+    //   }
+
+    //   private async connectToDatabase() {
+    //     await dbConnection();
+    //   }
 }
